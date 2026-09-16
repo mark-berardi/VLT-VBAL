@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2025.1.1),
-    on August 11, 2026, at 09:55
+    on September 15, 2026, at 10:23
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -996,8 +996,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     text_SpeechTask_mid = visual.TextStim(win=win, name='text_SpeechTask_mid',
         text='',
         font='Arial',
-        pos=(0, 0), draggable=False, height=0.08, wrapWidth=1.8, ori=0.0, 
-        color='black', colorSpace='rgb', opacity=None, 
+        pos=(0, 0), draggable=False, height=0.05, wrapWidth=1.8, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-1.0);
     mouse_SpeechTask = event.Mouse(win=win)
@@ -5176,7 +5176,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         method='sequential', 
         extraInfo=expInfo, 
         originPath=-1, 
-        trialList=data.importConditions('prepost.xlsx'), 
+        trialList=data.importConditions('PsychoPy/prepost.xlsx'), 
         seed=None, 
     )
     thisExp.addLoop(pre_loop)  # add the loop to the experiment

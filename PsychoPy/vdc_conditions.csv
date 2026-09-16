@@ -1,0 +1,9 @@
+trial,level_dBA,stim_file,passage_id,passage_text
+1,66,vdc_babble_66dBA.wav,P1,"PASTE PASSAGE 1 HERE. Roughly 30 seconds of reading at a normal rate. Keep the cell quoted; commas and apostrophes are fine inside the quotes. Line breaks inside a cell are also fine if quoted."
+2,69,vdc_babble_69dBA.wav,P2,"PASTE PASSAGE 2 HERE."
+3,72,vdc_babble_72dBA.wav,P3,"PASTE PASSAGE 3 HERE."
+4,75,vdc_babble_75dBA.wav,P4,"PASTE PASSAGE 4 HERE."
+5,78,vdc_babble_78dBA.wav,P5,"PASTE PASSAGE 5 HERE."
+6,81,vdc_babble_81dBA.wav,P6,"PASTE PASSAGE 6 HERE."
+7,84,vdc_babble_84dBA.wav,P7,"PASTE PASSAGE 7 HERE."
+8,66,vdc_babble_66dBA_repeat.wav,P8,"PASTE PASSAGE 8 HERE. This is the drift trial: the level returns to 66 dBA, and the rating here minus the trial 1 rating is the drift score."

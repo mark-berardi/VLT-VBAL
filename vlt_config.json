@@ -1,0 +1,23 @@
+{
+  "created": "2026-09-15T09:43:36",
+  "devices": {
+    "noise": {
+      "name": "Headphones (Realtek(R) Audio)",
+      "hostapi": "Windows DirectSound"
+    },
+    "speaker": {
+      "name": "Headphones (Realtek(R) Audio)",
+      "hostapi": "Windows DirectSound"
+    },
+    "sync": {
+      "name": "Speakers (Cable Creation)",
+      "hostapi": "Windows DirectSound"
+    }
+  },
+  "sync_tone": {
+    "f0_hz": 500.0,
+    "f1_hz": 4000.0,
+    "duration_s": 0.1,
+    "amplitude": 0.7
+  }
+}
