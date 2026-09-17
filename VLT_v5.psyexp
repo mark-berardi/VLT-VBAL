@@ -4911,10 +4911,10 @@
       <CodeComponent name="code_VLT_init" plugin="None">
         <Param val="pagelen = len(data.importConditions('PsychoPy/Pics_all.xlsx'))&amp;#10;pages = list(range(0,pagelen))&amp;#10;" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="&amp;#10;        // add-on: list(s: string): string[]&amp;#10;        function list(s) {&amp;#10;            // if s is a string, we return a list of its characters&amp;#10;            if (typeof s === 'string')&amp;#10;                return s.split('');&amp;#10;            else&amp;#10;                // otherwise we return s:&amp;#10;                return s;&amp;#10;        }&amp;#10;&amp;#10;        pagelen = data.importConditions(&quot;PsychoPy/Pics_all.xlsx&quot;).length;&amp;#10;pages = list(util.range(0, pagelen));&amp;#10;" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="pages = slice(pagenum, pagelen);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="pages = slice(pagenum, pagelen)" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="&amp;#10;VLT_started = False" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="VLT_started = false;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="pages = slice(pagenum, pagelen);&amp;#10;if ((! VLT_started)) {&amp;#10;    block += 1;&amp;#10;    VLT_started = true;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="pages = slice(pagenum, pagelen)&amp;#10;&amp;#10;if not VLT_started:&amp;#10;    block += 1&amp;#10;    VLT_started = True" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -6726,6 +6726,73 @@
     <LoopTerminator name="trials_vdc1"/>
     <Routine name="VDC_End"/>
     <Routine name="REST"/>
+    <LoopInitiator loopType="TrialHandler" name="mid_loop0">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'SpeechIntroText': 'Say &quot;ah&quot; for  about three seconds. Continue until you see STOP. You will do this three times.', 'SpeechMat': 'ah', 'IntroWav': 'vowel_intro_a.wav', 'isIntro': 1, 'Task': 'Vowel', 'Rep': 1, 'TaskName': 'sv_a', 'RatingTF': 0}, {'SpeechIntroText': None, 'SpeechMat': 'ah', 'IntroWav': None, 'isIntro': 0, 'Task': 'Vowel', 'Rep': 2, 'TaskName': 'sv_a', 'RatingTF': 0}, {'SpeechIntroText': None, 'SpeechMat': 'ah', 'IntroWav': None, 'isIntro': 0, 'Task': 'Vowel', 'Rep': 3, 'TaskName': 'sv_a', 'RatingTF': 0}, {'SpeechIntroText': 'Say &quot;ee&quot; for  about three seconds. Continue until you see STOP. You will do this three times.', 'SpeechMat': 'ee', 'IntroWav': 'vowel_intro_i.wav', 'isIntro': 1, 'Task': 'Vowel', 'Rep': 1, 'TaskName': 'sv_i', 'RatingTF': 0}, {'SpeechIntroText': None, 'SpeechMat': 'ee', 'IntroWav': None, 'isIntro': 0, 'Task': 'Vowel', 'Rep': 2, 'TaskName': 'sv_i', 'RatingTF': 0}, {'SpeechIntroText': None, 'SpeechMat': 'ee', 'IntroWav': None, 'isIntro': 0, 'Task': 'Vowel', 'Rep': 3, 'TaskName': 'sv_i', 'RatingTF': 1}, {'SpeechIntroText': 'Say  &quot;ahfah&quot;, &quot;eefee&quot;, or &quot;oofoo&quot; three times in a row, at a comfortable pitch and loudness.', 'SpeechMat': 'ah-fah ah-fah ah-fah', 'IntroWav': 'rff_intro.wav', 'isIntro': 1, 'Task': 'Vowel', 'Rep': 1, 'TaskName': 'rff_a', 'RatingTF': 0}, {'SpeechIntroText': None, 'SpeechMat': 'ee-fee ee-fee ee-fee', 'IntroWav': None, 'isIntro': 0, 'Task': 'Vowel', 'Rep': 2, 'TaskName': 'rff_i', 'RatingTF': 0}, {'SpeechIntroText': None, 'SpeechMat': 'oo-foo oo-foo oo-foo', 'IntroWav': None, 'isIntro': 0, 'Task': 'Vowel', 'Rep': 3, 'TaskName': 'rff_u', 'RatingTF': 1}, {'SpeechIntroText': 'Read each sentence aloud in your normal speaking voice.', 'SpeechMat': 'The blue spot is on the key again.', 'IntroWav': 'capev_intro.wav', 'isIntro': 1, 'Task': 'Speech', 'Rep': 1, 'TaskName': 'capev1', 'RatingTF': 0}, {'SpeechIntroText': None, 'SpeechMat': 'He helped her hurry home.', 'IntroWav': None, 'isIntro': 0, 'Task': 'Speech', 'Rep': 1, 'TaskName': 'capev2', 'RatingTF': 0}, {'SpeechIntroText': None, 'SpeechMat': 'We were away a year ago.', 'IntroWav': None, 'isIntro': 0, 'Task': 'Speech', 'Rep': 1, 'TaskName': 'capev3', 'RatingTF': 0}, {'SpeechIntroText': None, 'SpeechMat': 'I eat eggs every evening.', 'IntroWav': None, 'isIntro': 0, 'Task': 'Speech', 'Rep': 1, 'TaskName': 'capev4', 'RatingTF': 0}, {'SpeechIntroText': None, 'SpeechMat': 'My mama makes lemon jam.', 'IntroWav': None, 'isIntro': 0, 'Task': 'Speech', 'Rep': 1, 'TaskName': 'capev5', 'RatingTF': 0}, {'SpeechIntroText': None, 'SpeechMat': 'Peter will keep at the peak.', 'IntroWav': None, 'isIntro': 0, 'Task': 'Speech', 'Rep': 1, 'TaskName': 'capev6', 'RatingTF': 1}, {'SpeechIntroText': 'Read the passage aloud in your normal speaking voice.', 'SpeechMat': 'When the sunlight strikes raindrops in the air, they act like a prism and form a rainbow. The rainbow is a division of white light into many beautiful colors. These take the shape of a long round arch, with its path high above, and its two ends apparently beyond the horizon. There is, according to legend, a boiling pot of gold at one end. People look but no one ever finds it. When a man looks for something beyond his reach, his friends say he is looking for the pot of gold at the end of the rainbow.', 'IntroWav': 'passage_intro.wav', 'isIntro': 1, 'Task': 'Speech', 'Rep': 1, 'TaskName': 'rainbow', 'RatingTF': 1}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="PsychoPy/prepost.xlsx" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="False" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="num"/>
+      <Param name="name" updates="None" val="mid_loop0" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="SpeechIntro"/>
+    <LoopInitiator loopType="TrialHandler" name="speech_trials_mid0">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="False" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="10" valType="num"/>
+      <Param name="name" updates="None" val="speech_trials_mid0" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="SpeechTask"/>
+    <LoopTerminator name="speech_trials_mid0"/>
+    <LoopInitiator loopType="TrialHandler" name="rating_loop_mid0">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="False" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="RatingTF" valType="num"/>
+      <Param name="name" updates="None" val="rating_loop_mid0" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="BorgRating"/>
+    <LoopTerminator name="rating_loop_mid0"/>
+    <LoopTerminator name="mid_loop0"/>
+    <LoopInitiator loopType="TrialHandler" name="trials_vdcCont2">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'IntroText': 'You will now do sentences in increasing noise again.', 'IntroWav': 'vdcCont.wav'}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="PsychoPy/vdcCont.xlsx" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="num"/>
+      <Param name="name" updates="None" val="trials_vdcCont2" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="Intro"/>
+    <LoopTerminator name="trials_vdcCont2"/>
+    <LoopInitiator loopType="TrialHandler" name="trials_vdc2">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[OrderedDict([('trial', np.int64(1)), ('level_dBA', np.int64(66)), ('stim_file', 'vdc_babble_66dBA.wav'), ('passage_id', 'P1'), ('passage_text', 'PASTE PASSAGE 1 HERE. Roughly 30 seconds of reading at a normal rate. Keep the cell quoted; commas and apostrophes are fine inside the quotes. Line breaks inside a cell are also fine if quoted.')]), OrderedDict([('trial', np.int64(2)), ('level_dBA', np.int64(69)), ('stim_file', 'vdc_babble_69dBA.wav'), ('passage_id', 'P2'), ('passage_text', 'PASTE PASSAGE 2 HERE.')]), OrderedDict([('trial', np.int64(3)), ('level_dBA', np.int64(72)), ('stim_file', 'vdc_babble_72dBA.wav'), ('passage_id', 'P3'), ('passage_text', 'PASTE PASSAGE 3 HERE.')]), OrderedDict([('trial', np.int64(4)), ('level_dBA', np.int64(75)), ('stim_file', 'vdc_babble_75dBA.wav'), ('passage_id', 'P4'), ('passage_text', 'PASTE PASSAGE 4 HERE.')]), OrderedDict([('trial', np.int64(5)), ('level_dBA', np.int64(78)), ('stim_file', 'vdc_babble_78dBA.wav'), ('passage_id', 'P5'), ('passage_text', 'PASTE PASSAGE 5 HERE.')]), OrderedDict([('trial', np.int64(6)), ('level_dBA', np.int64(81)), ('stim_file', 'vdc_babble_81dBA.wav'), ('passage_id', 'P6'), ('passage_text', 'PASTE PASSAGE 6 HERE.')]), OrderedDict([('trial', np.int64(7)), ('level_dBA', np.int64(84)), ('stim_file', 'vdc_babble_84dBA.wav'), ('passage_id', 'P7'), ('passage_text', 'PASTE PASSAGE 7 HERE.')]), OrderedDict([('trial', np.int64(8)), ('level_dBA', np.int64(66)), ('stim_file', 'vdc_babble_66dBA_repeat.wav'), ('passage_id', 'P8'), ('passage_text', 'PASTE PASSAGE 8 HERE. This is the drift trial: the level returns to 66 dBA, and the rating here minus the trial 1 rating is the drift score.')])]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="PsychoPy/vdc_conditions.csv" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="False" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="num"/>
+      <Param name="name" updates="None" val="trials_vdc2" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="VDC"/>
+    <Routine name="BorgRating"/>
+    <LoopTerminator name="trials_vdc2"/>
+    <Routine name="VDC_End"/>
     <LoopInitiator loopType="TrialHandler" name="trials_picIntro">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[{'IntroText': &quot;Next in this study, you will narrate stories from a children's picture book.&quot;, 'IntroWav': 'Intro1_pic.wav'}, {'IntroText': 'First, here is an example.', 'IntroWav': 'Intro2_pic.wav'}]" valType="str"/>
@@ -6870,20 +6937,20 @@
     <Routine name="BorgRating"/>
     <LoopTerminator name="rating_loop_mid"/>
     <LoopTerminator name="mid_loop"/>
-    <LoopInitiator loopType="TrialHandler" name="trials_vdcCont1">
+    <LoopInitiator loopType="TrialHandler" name="trials_vdcCont3">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[{'IntroText': ' ', 'IntroWav': 'blank.wav'}]" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'IntroText': 'You will now do sentences in increasing noise again.', 'IntroWav': 'vdcCont.wav'}]" valType="str"/>
       <Param name="conditionsFile" updates="None" val="PsychoPy/vdcCont.xlsx" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="False" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
       <Param name="nReps" updates="None" val="1" valType="num"/>
-      <Param name="name" updates="None" val="trials_vdcCont1" valType="code"/>
+      <Param name="name" updates="None" val="trials_vdcCont3" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <Routine name="Intro"/>
-    <LoopTerminator name="trials_vdcCont1"/>
-    <LoopInitiator loopType="TrialHandler" name="trials_vdc2">
+    <LoopTerminator name="trials_vdcCont3"/>
+    <LoopInitiator loopType="TrialHandler" name="trials_vdc3">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[OrderedDict([('trial', np.int64(1)), ('level_dBA', np.int64(66)), ('stim_file', 'vdc_babble_66dBA.wav'), ('passage_id', 'P1'), ('passage_text', 'PASTE PASSAGE 1 HERE. Roughly 30 seconds of reading at a normal rate. Keep the cell quoted; commas and apostrophes are fine inside the quotes. Line breaks inside a cell are also fine if quoted.')]), OrderedDict([('trial', np.int64(2)), ('level_dBA', np.int64(69)), ('stim_file', 'vdc_babble_69dBA.wav'), ('passage_id', 'P2'), ('passage_text', 'PASTE PASSAGE 2 HERE.')]), OrderedDict([('trial', np.int64(3)), ('level_dBA', np.int64(72)), ('stim_file', 'vdc_babble_72dBA.wav'), ('passage_id', 'P3'), ('passage_text', 'PASTE PASSAGE 3 HERE.')]), OrderedDict([('trial', np.int64(4)), ('level_dBA', np.int64(75)), ('stim_file', 'vdc_babble_75dBA.wav'), ('passage_id', 'P4'), ('passage_text', 'PASTE PASSAGE 4 HERE.')]), OrderedDict([('trial', np.int64(5)), ('level_dBA', np.int64(78)), ('stim_file', 'vdc_babble_78dBA.wav'), ('passage_id', 'P5'), ('passage_text', 'PASTE PASSAGE 5 HERE.')]), OrderedDict([('trial', np.int64(6)), ('level_dBA', np.int64(81)), ('stim_file', 'vdc_babble_81dBA.wav'), ('passage_id', 'P6'), ('passage_text', 'PASTE PASSAGE 6 HERE.')]), OrderedDict([('trial', np.int64(7)), ('level_dBA', np.int64(84)), ('stim_file', 'vdc_babble_84dBA.wav'), ('passage_id', 'P7'), ('passage_text', 'PASTE PASSAGE 7 HERE.')]), OrderedDict([('trial', np.int64(8)), ('level_dBA', np.int64(66)), ('stim_file', 'vdc_babble_66dBA_repeat.wav'), ('passage_id', 'P8'), ('passage_text', 'PASTE PASSAGE 8 HERE. This is the drift trial: the level returns to 66 dBA, and the rating here minus the trial 1 rating is the drift score.')])]" valType="str"/>
       <Param name="conditionsFile" updates="None" val="PsychoPy/vdc_conditions.csv" valType="file"/>
@@ -6891,12 +6958,12 @@
       <Param name="isTrials" updates="None" val="False" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
       <Param name="nReps" updates="None" val="1" valType="num"/>
-      <Param name="name" updates="None" val="trials_vdc2" valType="code"/>
+      <Param name="name" updates="None" val="trials_vdc3" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <Routine name="VDC"/>
     <Routine name="BorgRating"/>
-    <LoopTerminator name="trials_vdc2"/>
+    <LoopTerminator name="trials_vdc3"/>
     <Routine name="VDC_End"/>
     <Routine name="VDSlider"/>
     <Routine name="REST"/>
@@ -6939,20 +7006,20 @@
     <Routine name="BorgRating"/>
     <LoopTerminator name="rating_loop_post"/>
     <LoopTerminator name="post_loop"/>
-    <LoopInitiator loopType="TrialHandler" name="trials_vdcCont2">
+    <LoopInitiator loopType="TrialHandler" name="trials_vdcCont4">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[{'IntroText': ' ', 'IntroWav': 'blank.wav'}]" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'IntroText': 'You will now do sentences in increasing noise again.', 'IntroWav': 'vdcCont.wav'}]" valType="str"/>
       <Param name="conditionsFile" updates="None" val="PsychoPy/vdcCont.xlsx" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="False" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
       <Param name="nReps" updates="None" val="1" valType="num"/>
-      <Param name="name" updates="None" val="trials_vdcCont2" valType="code"/>
+      <Param name="name" updates="None" val="trials_vdcCont4" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <Routine name="Intro"/>
-    <LoopTerminator name="trials_vdcCont2"/>
-    <LoopInitiator loopType="TrialHandler" name="trials_vdc3">
+    <LoopTerminator name="trials_vdcCont4"/>
+    <LoopInitiator loopType="TrialHandler" name="trials_vdc4">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[OrderedDict([('trial', np.int64(1)), ('level_dBA', np.int64(66)), ('stim_file', 'vdc_babble_66dBA.wav'), ('passage_id', 'P1'), ('passage_text', 'PASTE PASSAGE 1 HERE. Roughly 30 seconds of reading at a normal rate. Keep the cell quoted; commas and apostrophes are fine inside the quotes. Line breaks inside a cell are also fine if quoted.')]), OrderedDict([('trial', np.int64(2)), ('level_dBA', np.int64(69)), ('stim_file', 'vdc_babble_69dBA.wav'), ('passage_id', 'P2'), ('passage_text', 'PASTE PASSAGE 2 HERE.')]), OrderedDict([('trial', np.int64(3)), ('level_dBA', np.int64(72)), ('stim_file', 'vdc_babble_72dBA.wav'), ('passage_id', 'P3'), ('passage_text', 'PASTE PASSAGE 3 HERE.')]), OrderedDict([('trial', np.int64(4)), ('level_dBA', np.int64(75)), ('stim_file', 'vdc_babble_75dBA.wav'), ('passage_id', 'P4'), ('passage_text', 'PASTE PASSAGE 4 HERE.')]), OrderedDict([('trial', np.int64(5)), ('level_dBA', np.int64(78)), ('stim_file', 'vdc_babble_78dBA.wav'), ('passage_id', 'P5'), ('passage_text', 'PASTE PASSAGE 5 HERE.')]), OrderedDict([('trial', np.int64(6)), ('level_dBA', np.int64(81)), ('stim_file', 'vdc_babble_81dBA.wav'), ('passage_id', 'P6'), ('passage_text', 'PASTE PASSAGE 6 HERE.')]), OrderedDict([('trial', np.int64(7)), ('level_dBA', np.int64(84)), ('stim_file', 'vdc_babble_84dBA.wav'), ('passage_id', 'P7'), ('passage_text', 'PASTE PASSAGE 7 HERE.')]), OrderedDict([('trial', np.int64(8)), ('level_dBA', np.int64(66)), ('stim_file', 'vdc_babble_66dBA_repeat.wav'), ('passage_id', 'P8'), ('passage_text', 'PASTE PASSAGE 8 HERE. This is the drift trial: the level returns to 66 dBA, and the rating here minus the trial 1 rating is the drift score.')])]" valType="str"/>
       <Param name="conditionsFile" updates="None" val="PsychoPy/vdc_conditions.csv" valType="file"/>
@@ -6960,12 +7027,12 @@
       <Param name="isTrials" updates="None" val="False" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
       <Param name="nReps" updates="None" val="1" valType="num"/>
-      <Param name="name" updates="None" val="trials_vdc3" valType="code"/>
+      <Param name="name" updates="None" val="trials_vdc4" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <Routine name="VDC"/>
     <Routine name="BorgRating"/>
-    <LoopTerminator name="trials_vdc3"/>
+    <LoopTerminator name="trials_vdc4"/>
     <Routine name="VDC_End"/>
     <Routine name="VDSlider"/>
     <LoopInitiator loopType="TrialHandler" name="trials_End">
