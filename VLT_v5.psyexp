@@ -4920,8 +4920,8 @@
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="vltSegStart = time.time();&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="vltSegStart = time.time()" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="code_VLT_init" valType="code" updates="None" name="name"/>
       </CodeComponent>
@@ -4989,9 +4989,9 @@
         <Param val="NOISE_RAMP_S = 10.0&amp;#10;&amp;#10;def make_ramp(d, sr):&amp;#10;    n = int(sr * NOISE_RAMP_S)&amp;#10;    r = (0.5 * (1 - np.cos(np.pi * np.linspace(0, 1, n)))).astype('float32')&amp;#10;    head = d[:n].copy()&amp;#10;    if head.ndim &gt; 1:&amp;#10;        head *= r[:, None]&amp;#10;    else:&amp;#10;        head *= r&amp;#10;    return head&amp;#10;&amp;#10;noise_high_filename = './Noise/Babble_Low.wav'&amp;#10;noise_low_filename = './Noise/Babble_Low.wav'&amp;#10;NHdata, NHfs = sf.read(noise_high_filename, dtype='float32') &amp;#10;NLdata, NLfs = sf.read(noise_low_filename, dtype='float32') &amp;#10;&amp;#10;NHramp = make_ramp(NHdata, NHfs)&amp;#10;NLramp = make_ramp(NLdata, NLfs)&amp;#10;&amp;#10;previousLevel = None" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="/* Syntax Error: Fix Python code */" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="if ((Level !== previousLevel)) {&amp;#10;    sd.stop();&amp;#10;    if ((Level === &quot;Low&quot;)) {&amp;#10;        sd.play(NLdata, {&quot;samplerate&quot;: NLfs, &quot;device&quot;: noiseDev, &quot;loop&quot;: true});&amp;#10;    } else {&amp;#10;        if ((Level === &quot;High&quot;)) {&amp;#10;            sd.play(NHdata, {&quot;samplerate&quot;: NHfs, &quot;device&quot;: noiseDev, &quot;loop&quot;: true});&amp;#10;        }&amp;#10;    }&amp;#10;    previousLevel = Level;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="if Level != previousLevel:&amp;#10;    sd.stop()&amp;#10;    if Level == 'Low':&amp;#10;        if previousLevel is None:&amp;#10;            sd.play(NLramp, samplerate=NLfs)&amp;#10;            sd.wait()&amp;#10;        sd.play(NLdata, samplerate=NLfs, loop=True)&amp;#10;    elif Level == 'High':&amp;#10;        if previousLevel is None:&amp;#10;            sd.play(NHramp, samplerate=NHfs)&amp;#10;            sd.wait()&amp;#10;        sd.play(NHdata, samplerate=NHfs, loop=True)&amp;#10;    previousLevel = Level" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="if Level != previousLevel:&amp;#10;    sd.stop()&amp;#10;    if Level == 'Low':&amp;#10;        if previousLevel is None:&amp;#10;            sd.play(NLramp, samplerate=NLfs)&amp;#10;            sd.wait()&amp;#10;        sd.play(NLdata, samplerate=NLfs, loop=True)&amp;#10;    elif Level == 'High':&amp;#10;        if previousLevel is None:&amp;#10;            sd.play(NHramp, samplerate=NHfs)&amp;#10;            sd.wait()&amp;#10;        sd.play(NHdata, samplerate=NHfs, loop=True)&amp;#10;    previousLevel = Level&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
-        <Param val="if len(_STIM_quit_allKeys) &gt; 0:&amp;#10;    del _STIM_quit_allKeys[:]&amp;#10;    VLT_stim.finished = True&amp;#10;    trials_noise.finished = True&amp;#10;    continueRoutine = False&amp;#10;&amp;#10;&amp;#10;if t &gt; Duration:&amp;#10;    VLT_stim.finished = True&amp;#10;    continueRoutine = False&amp;#10;    pagenum -= 1" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="if len(_STIM_quit_allKeys) &gt; 0:&amp;#10;    del _STIM_quit_allKeys[:]&amp;#10;    VLT_stim.finished = True&amp;#10;    trials_noise.finished = True&amp;#10;    continueRoutine = False&amp;#10;&amp;#10;&amp;#10;if time.time() - vltSegStart &gt; Duration:&amp;#10;    VLT_stim.finished = True&amp;#10;    continueRoutine = False&amp;#10;    pagenum -= 1" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="if ((_STIM_quit_allKeys.length &gt; 0)) {&amp;#10;    delete _STIM_quit_allKeys.slice(0);&amp;#10;    VLT_stim.finished = true;&amp;#10;    trials_noise.finished = true;&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;if ((t &gt; Duration)) {&amp;#10;    VLT_stim.finished = true;&amp;#10;    continueRoutine = false;&amp;#10;    pagenum -= 1;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
@@ -5345,7 +5345,7 @@
         <Param val="False" valType="bool" updates="constant" name="saveStartRoutine"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="0.62" valType="code" updates="constant" name="startExpValue"/>
+        <Param val="0.5" valType="code" updates="constant" name="startExpValue"/>
         <Param val="" valType="code" updates="None" name="startFrameValue"/>
         <Param val="" valType="code" updates="constant" name="startRoutineValue"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
